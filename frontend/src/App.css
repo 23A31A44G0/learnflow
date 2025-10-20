@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.App {
+  min-height: 100vh;
+}
+
+/* Custom utility classes */
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* AI Response Formatting */
+.ai-response {
+  line-height: 1.6;
+}
+
+.ai-response strong {
+  color: #1f2937;
+  font-weight: 600;
+}
+
+.ai-response em {
+  font-style: italic;
+  color: #374151;
+}
+
+.ai-response ul {
+  margin: 0.5rem 0;
+  padding-left: 0;
+}
+
+.ai-response li {
+  margin: 0.25rem 0;
+  list-style: none;
+}
+
+/* Concept Map Styles */
+.concept-map svg {
+  overflow: visible;
+}
+
+.concept-node {
+  transition: all 0.2s ease;
+}
+
+.concept-node:hover {
+  filter: brightness(1.1);
+  transform: scale(1.05);
+}
+
+/* Socratic Dialogue Styles */
+.conversation-bubble {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.suggested-question {
+  transition: all 0.2s ease;
+}
+
+.suggested-question:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
