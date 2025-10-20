@@ -8,6 +8,23 @@ require('dotenv').config();
 
 const app = express();
 
+// Trust proxy when behind load balancers / hosting providers (Render, Railway, Vercel)
+app.set('trust proxy', 1);
+
+// Enforce HTTPS in production
+if (process.env.NODE_ENV === 'production') {
+  app.use((req, res, next) => {
+    // X-Forwarded-Proto is set by proxies; some providers use req.secure
+    const proto = req.headers['x-forwarded-proto'] || (req.secure ? 'https' : 'http');
+    if (proto !== 'https') {
+      const host = req.headers['x-forwarded-host'] || req.headers.host;
+      const url = `https://${host}${req.originalUrl}`;
+      return res.redirect(301, url);
+    }
+    next();
+  });
+}
+
 // Security Middleware
 app.use(helmet());
 app.use(compression());

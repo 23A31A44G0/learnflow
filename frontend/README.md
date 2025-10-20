@@ -1,6 +1,23 @@
-# Getting Started with Create React App
+# LearnFlow Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+The frontend for LearnFlow - an AI-powered active recall learning platform. This React application provides user authentication, question generation, practice interfaces, and analytics for learners.
+
+## Features
+
+- User authentication (login/register)
+- AI-powered question generation from study materials
+- Interactive practice sessions
+- Performance analytics dashboard
+- Spaced repetition practice
+- Gamification elements
+
+## Tech Stack
+
+- React.js with TypeScript
+- React Router for navigation
+- Tailwind CSS for styling
+- Axios for API communication
+- Recharts for data visualization
 
 ## Available Scripts
 
@@ -37,7 +54,40 @@ If you aren’t satisfied with the build tool and configuration choices, you can
 
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+## Environment Configuration
+
+Create a `.env` file with:
+
+```
+REACT_APP_API_URL=http://localhost:5000/api
+REACT_APP_ENVIRONMENT=development
+```
+
+For production deployment, set these environment variables on your hosting platform:
+
+```
+REACT_APP_API_URL=https://your-backend-url/api
+REACT_APP_ENVIRONMENT=production
+```
+
+## Deployment
+
+This project can be deployed to Render, Vercel, Netlify, or any static hosting service:
+
+### Render Deployment:
+- Create a new Static Site in Render
+- Connect to this GitHub repository
+- Set build command: `npm ci && npm run build`
+- Set publish directory: `build`
+- Add environment variables
+- Enable SPA routing in Redirects/Rewrites: Source `/*`, Destination `/index.html`, Action `Rewrite`
+
+### Vercel Deployment:
+- Import the repository into Vercel
+- Vercel will automatically detect React and configure the build settings
+- Set environment variables in the project settings
 
 ## Learn More
 
