@@ -12,6 +12,7 @@ import LearnSpace from './pages/LearnSpace';
 import MetacognitiveDashboard from './pages/MetacognitiveDashboard';
 import GamificationDashboard from './pages/GamificationDashboard';
 import Navbar from './components/Navbar';
+import FrontendOnlyBanner from './components/FrontendOnlyBanner';
 import './App.css';
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -48,6 +49,7 @@ function App() {
       <GamificationProvider>
         <Router>
           <div className="App">
+            <FrontendOnlyBanner />
             <Routes>
               <Route 
                 path="/login" 
